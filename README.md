@@ -7,20 +7,20 @@ The programm will automatically run and measure the performance for all of your 
 #Sorting criteria
 You need to sort by age then by last name and then by first name. This here is the reference implementation:
 
-     NSArray *referenceSortResult = [[persons copy] 		sortedArrayUsingComparator:^NSComparisonResult(Person *person1, Person *person2) {
-            if (person1.age < person2.age) {
-                return NSOrderedAscending;
-            } else if (person1.age > person2.age) {
-                return NSOrderedDescending;
+     NSArray *referenceSortResult = [[persons copy] sortedArrayUsingComparator:^NSComparisonResult(Person *person1, Person *person2) {
+        if (person1.age < person2.age) {
+            return NSOrderedAscending;
+        } else if (person1.age > person2.age) {
+            return NSOrderedDescending;
+        } else {S
+            NSComparisonResult lastNameCompare = [person1.lastName compare:person2.lastName];
+            if (lastNameCompare != NSOrderedSame) {
+                return lastNameCompare;
             } else {
-                NSComparisonResult lastNameCompare = [person1.lastName compare:person2.lastName];
-                if (lastNameCompare != NSOrderedSame) {
-                    return lastNameCompare;
-                } else {
-                    return [person1.firstName compare:person2.firstName];
-                }
+                return [person1.firstName compare:person2.firstName];
             }
-        }]; 
+        }
+    }]; 
         
 #Amount of elements to sort
 
