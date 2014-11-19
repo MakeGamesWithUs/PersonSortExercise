@@ -16,7 +16,7 @@ You need to sort by age then by last name and then by first name. This here is t
             return NSOrderedAscending;
         } else if (person1.age > person2.age) {
             return NSOrderedDescending;
-        } else {S
+        } else {
             NSComparisonResult lastNameCompare = [person1.lastName compare:person2.lastName];
             if (lastNameCompare != NSOrderedSame) {
                 return lastNameCompare;
